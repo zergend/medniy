@@ -1,0 +1,113 @@
+/*!***********************************************************************************************************!*\
+  !*** css ../node_modules/css-loader/dist/cjs.js!../node_modules/sass-loader/dist/cjs.js!./scss/main.scss ***!
+  \***********************************************************************************************************/
+@font-face {
+  font-family: "Manrope";
+  src: url(fonts/Manrope-Regular.ttf) format("truetype");
+  font-weight: 400;
+  font-style: normal;
+  font-stretch: normal; }
+
+@font-face {
+  font-family: "Manrope";
+  src: url(fonts/Manrope-Medium.ttf) format("truetype");
+  font-weight: 500;
+  font-style: normal;
+  font-stretch: normal; }
+
+@font-face {
+  font-family: "Manrope";
+  src: url(fonts/Manrope-Bold.ttf) format("truetype");
+  font-weight: 700;
+  font-style: normal;
+  font-stretch: normal; }
+
+@font-face {
+  font-family: "Calmius Sans Oppo";
+  src: url(fonts/CalmiusSans-Oppo.ttf) format("truetype");
+  font-weight: 400;
+  font-style: normal;
+  font-stretch: normal; }
+
+html {
+  box-sizing: border-box; }
+
+*,
+*::before,
+*::after {
+  box-sizing: inherit; }
+
+body {
+  scroll-behavior: smooth;
+  background-color: #e8e8e8;
+  color: #23272c;
+  font-family: "Manrope";
+  font-style: normal;
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 24px; }
+
+img {
+  max-width: 100%; }
+
+a {
+  text-decoration: none;
+  color: inherit; }
+
+.visually-hidden {
+  position: absolute !important;
+  clip: rect(1px 1px 1px 1px);
+  clip: rect(1px, 1px, 1px, 1px);
+  padding: 0 !important;
+  border: 0 !important;
+  height: 1px !important;
+  width: 1px !important;
+  overflow: hidden; }
+
+.list-reset {
+  list-style-type: none;
+  margin: 0;
+  padding: 0; }
+
+.container {
+  margin: 0 auto;
+  padding: 0 180px;
+  max-width: 1440px; }
+
+.title {
+  font-family: "Calmius Sans Oppo", sans-serif;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 36px;
+  line-height: 50px;
+  letter-spacing: -0.02em;
+  text-transform: uppercase;
+  color: #23272c; }
+  .title--light {
+    color: #ffffff; }
+  .title--intro {
+    font-family: "Manrope";
+    font-style: normal;
+    font-weight: 400;
+    font-size: 50px;
+    line-height: 56px;
+    text-align: center;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: rgba(255, 255, 255, 0.7); }
+  .title--extra {
+    font-family: "Manrope";
+    font-style: normal;
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 25px;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: #c3c4c6; }
+
+.intro__content {
+  max-height: 680px;
+  background-image: url(img\intro-bg.1d2e554df50627562864.png); }
+
+
+/*# sourceMappingURL=main.css.map*/

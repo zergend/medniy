@@ -1,0 +1,16 @@
+@import "mixins";
+@import "fonts";
+@import "vendor";
+@import "vars";
+@import "settings";
+
+@import "./components/header";
+@import "intro";
+@import "./components/about";
+@import "./components/location";
+@import "./components/options";
+@import "./components/extra";
+@import "./components/exclusive";
+@import "./components/gallery";
+@import "./components/sales";
+@import "./components/footer";

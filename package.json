@@ -1,6 +1,6 @@
 {
-  "name": "idisign",
-  "description": "- test",
+  "name": "medniy",
+  "description": "medniy",
   "version": "1.0.0",
   "main": "index.js",
   "devDependencies": {
@@ -40,7 +40,7 @@
     "start": "cross-env NODE_ENV=development webpack serve --mode development"
   },
   "keywords": [],
-  "author": "",
+  "author": "zergend",
   "license": "ISC",
   "dependencies": {
     "normalize.css": "^8.0.1"
