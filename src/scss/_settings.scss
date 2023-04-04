@@ -115,4 +115,17 @@ a {
   letter-spacing: 0.16em;
   text-transform: uppercase;
   color: $color-text-cuprum;
+
+  &__form {
+    margin-bottom: 25px;
+    font-family: "Manrope";
+    font-style: normal;
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 25px;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+
+    color: #ffffff;
+  }
 }

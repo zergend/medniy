@@ -552,14 +552,43 @@
       <section class="sales">
         <div class="container">
           <div class="sales__content wrap flex">
-            <section class="sales-form">
+            <section class="sales-form-section">
               <div class="caption">
                 <h2 class="title title--dark title--sales">Офис продаж</h2>
               </div>
-            </section>
-            <section class="sales-map">
 
+              <div class="form-wrap">
+                <p class="subtitle subtitle__form">Посетите наш офис продаж</p>
+
+                <form
+                  action="#"
+                  method="post"
+                  class="form sales-form sales-form--flex"
+                >
+                  <input
+                    class="sales-form__input"
+                    type="text"
+                    placeholder="Ваше имя"
+                    required
+                  />
+                  <input
+                    class="sales-form__input"
+                    type="tel"
+                    placeholder="Телефон"
+                    required
+                  />
+                  <input
+                    class="sales-form__input"
+                    type="email"
+                    placeholder="Email"
+                  />
+                  <button type="submit" class="btn sales-form__btn">
+                    Отправить
+                  </button>
+                </form>
+              </div>
             </section>
+            <section class="sales-map"></section>
           </div>
         </div>
       </section>

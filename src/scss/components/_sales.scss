@@ -1,9 +1,47 @@
-.sales-form {
+.sales-form-section {
   max-width: 640px;
   background-color: $color-grey;
   padding-top: 60px;
   padding-left: 100px;
   padding-right: 80px;
+  padding-bottom: 46px;
+}
+
+.sales-form {
+  &--flex {
+    display: flex;
+    gap: 20px;
+    flex-direction: column;
+  }
+
+  &__input {
+    width: 280px;
+    height: 44px;
+    background-color: #fff;
+    border: none;
+  }
+
+  &__btn {
+    width: 280px;
+    height: 52px;
+    background-color: $color-bg-dark;
+    color: #fff;
+    font-family: "Manrope";
+    font-style: normal;
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 19px;
+  }
+}
+
+.form-wrap {
+  width: 460px;
+  max-height: 381px;
+  padding-top: 28px;
+  padding-left: 94px;
+  background-color: $color-bg-cuprum;
+
+  clip-path: polygon(0% 0%, 100% 0, 100% 74.28%, 84.78% 100%, 0% 100%);
 }
 
 .sales-map {

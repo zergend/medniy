@@ -129,6 +129,16 @@ a {
   letter-spacing: 0.16em;
   text-transform: uppercase;
   color: #dc9877; }
+  .subtitle__form {
+    margin-bottom: 25px;
+    font-family: "Manrope";
+    font-style: normal;
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 25px;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: #ffffff; }
 
 .intro__content {
   max-height: 680px;
@@ -311,12 +321,43 @@ a {
   background-color: #23272c;
   opacity: 0.7; }
 
-.sales-form {
+.sales-form-section {
   max-width: 640px;
   background-color: #f6f6f6;
   padding-top: 60px;
   padding-left: 100px;
-  padding-right: 80px; }
+  padding-right: 80px;
+  padding-bottom: 46px; }
+
+.sales-form--flex {
+  display: flex;
+  gap: 20px;
+  flex-direction: column; }
+
+.sales-form__input {
+  width: 280px;
+  height: 44px;
+  background-color: #fff;
+  border: none; }
+
+.sales-form__btn {
+  width: 280px;
+  height: 52px;
+  background-color: #23272c;
+  color: #fff;
+  font-family: "Manrope";
+  font-style: normal;
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 19px; }
+
+.form-wrap {
+  width: 460px;
+  max-height: 381px;
+  padding-top: 28px;
+  padding-left: 94px;
+  background-color: #dc9877;
+  clip-path: polygon(0% 0%, 100% 0, 100% 74.28%, 84.78% 100%, 0% 100%); }
 
 .sales-map {
   background-image: url(../img/office-map.7c39ac7da31ca45af99f.png);
