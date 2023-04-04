@@ -1,12 +1,44 @@
 .location {
+  &__caption {
+    margin-left: 118px;
+  }
+
   &__content {
+    padding-bottom: 59px;
     background-color: $color-bg-dark;
+    gap: 49px;
+
+    clip-path: polygon(
+      6.944% 0,
+      100% 0,
+      100% 68.75%,
+      87.5% 100%,
+      0 100%,
+      0 17.5%
+    );
   }
 
   &__btn {
-    background-color: $color-bg-cuprum;
+    background-color: transparent;
+    display: flex;
+    width: 270px;
+    height: 60px;
+    background-image: url(".././img/location-btn-bg.png");
+    background-repeat: no-repeat;
+    background-position: top left;
+    background-size: auto;
     color: $color-text-dark;
+    box-shadow: 0px 20px 35px rgba(24, 24, 24, 0.75);
   }
+
+  &__link {
+    margin: auto;
+  }
+}
+
+.location-map {
+  margin-top: 62px;
+  margin-left: 62px;
 }
 
 .location-info {

@@ -147,12 +147,33 @@ a {
   background-position: center;
   background-size: cover; }
 
+.location__caption {
+  margin-left: 118px; }
+
 .location__content {
-  background-color: #23272c; }
+  padding-bottom: 59px;
+  background-color: #23272c;
+  gap: 49px;
+  clip-path: polygon(6.944% 0, 100% 0, 100% 68.75%, 87.5% 100%, 0 100%, 0 17.5%); }
 
 .location__btn {
-  background-color: #dc9877;
-  color: #23272c; }
+  background-color: transparent;
+  display: flex;
+  width: 270px;
+  height: 60px;
+  background-image: url(../img/location-btn-bg.b19a0f7ab9baa7822ce9.png);
+  background-repeat: no-repeat;
+  background-position: top left;
+  background-size: auto;
+  color: #23272c;
+  box-shadow: 0px 20px 35px rgba(24, 24, 24, 0.75); }
+
+.location__link {
+  margin: auto; }
+
+.location-map {
+  margin-top: 62px;
+  margin-left: 62px; }
 
 .location-info__item-subtitle {
   color: #dc9877;
@@ -180,6 +201,19 @@ a {
   font-weight: 500;
   font-size: 14px;
   line-height: 24px; }
+
+.options__caption {
+  margin-top: 62px;
+  margin-bottom: 40px;
+  margin-left: 100px;
+  padding-left: 80px;
+  background-image: url(../img/options-slash.64faa7274d820a702bf3.svg);
+  background-repeat: no-repeat;
+  background-position: top left;
+  background-size: auto; }
+
+.options__title {
+  margin-bottom: 10px; }
 
 .options-card-list {
   margin: 0 180px;
@@ -253,20 +287,32 @@ a {
   background-size: cover; }
 
 .exclusive__caption {
-  margin-bottom: 40px; }
+  margin-bottom: 40px;
+  margin-left: 100px;
+  padding-left: 80px;
+  background-image: url(../img/exclusive-slash.64faa7274d820a702bf3.svg);
+  background-repeat: no-repeat;
+  background-position: left;
+  background-size: auto; }
 
 .exclusive-list {
   margin: 0 180px;
   flex-wrap: wrap;
   row-gap: 30px; }
   .exclusive-list__item {
-    flex: 1 1 calc((100% / 3)); }
+    flex: 1 1 calc((100% / 3));
+    display: flex;
+    align-items: center;
+    gap: 30px; }
+  .exclusive-list__txt {
+    max-width: 190px; }
 
 .gallery__content {
   padding-top: 72px;
   padding-bottom: 70px;
   max-height: 640px;
-  background-color: #23272c; }
+  background-color: #23272c;
+  clip-path: polygon(6.944% 0, 100% 0%, 100% 100%, 0 100%, 0 21.875%); }
 
 .gallery__caption {
   margin-left: 180px;
@@ -327,7 +373,33 @@ a {
   padding-top: 60px;
   padding-left: 100px;
   padding-right: 80px;
-  padding-bottom: 46px; }
+  clip-path: polygon(15.625% 0, 100% 0%, 100% 100%, 0 100%, 0 17.5%); }
+
+.sales__caption {
+  margin-left: 80px; }
+
+.address {
+  margin-left: 80px;
+  margin-top: 20px;
+  margin-bottom: 40px; }
+  .address__item {
+    margin-bottom: 20px; }
+  .address__title {
+    font-family: "Manrope";
+    font-style: normal;
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 25px;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: #dc9877; }
+  .address__txt {
+    font-family: "Manrope";
+    font-style: normal;
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 24px;
+    color: #23272c; }
 
 .sales-form--flex {
   display: flex;
@@ -349,15 +421,24 @@ a {
   font-style: normal;
   font-weight: 500;
   font-size: 14px;
-  line-height: 19px; }
+  line-height: 19px;
+  border: none;
+  clip-path: polygon(5.35% 0, 100% 0%, 100% 100%, 0 100%, 0 42.3%); }
+  .sales-form__btn:hover {
+    cursor: pointer; }
 
 .form-wrap {
   width: 460px;
   max-height: 381px;
   padding-top: 28px;
-  padding-left: 94px;
+  padding-left: 80px;
+  padding-bottom: 46px;
   background-color: #dc9877;
   clip-path: polygon(0% 0%, 100% 0, 100% 74.28%, 84.78% 100%, 0% 100%); }
+
+.subtitle__form {
+  margin: 0;
+  margin-bottom: 14px; }
 
 .sales-map {
   background-image: url(../img/office-map.7c39ac7da31ca45af99f.png);
@@ -366,6 +447,46 @@ a {
   background-size: cover;
   width: 800px;
   height: 800px; }
+
+.footer__container {
+  background-color: #f6f6f6; }
+
+.footer__wrap {
+  background-color: #23272c;
+  clip-path: polygon(6.944% 0, 100% 0%, 100% 100%, 0 100%, 0 56%);
+  padding: 72px 100px; }
+
+.footer__list {
+  justify-content: space-between;
+  align-items: center; }
+
+.footer__info {
+  padding-left: 80px; }
+
+.footer__link {
+  display: block; }
+
+.footer__tel {
+  margin-bottom: 10px;
+  font-family: "Manrope";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 25px;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: #dc9877; }
+
+.footer__docs {
+  font-family: "Manrope";
+  font-style: normal;
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 24px;
+  color: #fff; }
+
+.socials {
+  gap: 20px; }
 
 
 /*# sourceMappingURL=main.css.map*/

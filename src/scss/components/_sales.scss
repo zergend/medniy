@@ -4,7 +4,42 @@
   padding-top: 60px;
   padding-left: 100px;
   padding-right: 80px;
-  padding-bottom: 46px;
+
+  clip-path: polygon(15.625% 0, 100% 0%, 100% 100%, 0 100%, 0 17.5%);
+}
+
+.sales {
+  &__caption {
+    margin-left: 80px;
+  }
+}
+
+.address {
+  margin-left: 80px;
+  margin-top: 20px;
+  margin-bottom: 40px;
+  &__item {
+    margin-bottom: 20px;
+  }
+  &__title {
+    font-family: "Manrope";
+    font-style: normal;
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 25px;
+
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: $color-text-cuprum;
+  }
+  &__txt {
+    font-family: "Manrope";
+    font-style: normal;
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 24px;
+    color: $color-text-dark;
+  }
 }
 
 .sales-form {
@@ -31,6 +66,13 @@
     font-weight: 500;
     font-size: 14px;
     line-height: 19px;
+    border: none;
+
+    clip-path: polygon(5.35% 0, 100% 0%, 100% 100%, 0 100%, 0 42.3%);
+
+    &:hover {
+      cursor: pointer;
+    }
   }
 }
 
@@ -38,10 +80,16 @@
   width: 460px;
   max-height: 381px;
   padding-top: 28px;
-  padding-left: 94px;
+  padding-left: 80px;
+  padding-bottom: 46px;
   background-color: $color-bg-cuprum;
 
   clip-path: polygon(0% 0%, 100% 0, 100% 74.28%, 84.78% 100%, 0% 100%);
+}
+
+.subtitle__form {
+  margin: 0;
+  margin-bottom: 14px;
 }
 
 .sales-map {

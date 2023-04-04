@@ -1,0 +1,50 @@
+.footer {
+  &__container {
+    background-color: $color-grey;
+  }
+
+  &__wrap {
+    background-color: $color-bg-dark;
+    clip-path: polygon(6.944% 0, 100% 0%, 100% 100%, 0 100%, 0 56%);
+    padding: 72px 100px;
+  }
+
+  &__list {
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  &__info {
+    padding-left: 80px;
+  }
+
+  &__link {
+    display: block;
+  }
+
+  &__tel {
+    margin-bottom: 10px;
+    font-family: "Manrope";
+    font-style: normal;
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 25px;
+
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: $color-text-cuprum;
+  }
+
+  &__docs {
+    font-family: "Manrope";
+    font-style: normal;
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 24px;
+    color: #fff;
+  }
+}
+
+.socials {
+  gap: 20px;
+}

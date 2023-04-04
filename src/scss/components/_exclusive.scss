@@ -11,6 +11,12 @@
 
   &__caption {
     margin-bottom: 40px;
+    margin-left: 100px;
+    padding-left: 80px;
+    background-image: url(".././img/exclusive-slash.svg");
+    background-repeat: no-repeat;
+    background-position: left;
+    background-size: auto;
   }
 
   &-list {
@@ -20,6 +26,13 @@
 
     &__item {
       flex: 1 1 calc((100% / 3));
+      display: flex;
+      align-items: center;
+      gap: 30px;
+    }
+
+    &__txt {
+      max-width: 190px;
     }
   }
 }

@@ -131,7 +131,7 @@
         <div class="container">
           <div class="location__content wrap flex">
             <div class="column location__column location-map">
-              <div class="caption caption--location">
+              <div class="caption caption--location location__caption">
                 <h2 class="title title--light title--location">Расположение</h2>
               </div>
               <img src="img/map-medniy.df445519c4d0473df042.png" alt="Расположение резиденции Медный" class="location-map__img" width="749" height="639">
@@ -178,7 +178,9 @@
                 </li>
               </ul>
 
-              <a href="#" class="btn location__btn">Получить консультацию</a>
+              <div class="btn location__btn">
+                <a href="#" class="location__link">Получить консультацию</a>
+              </div>
             </div>
           </div>
         </div>
@@ -186,9 +188,11 @@
       <section class="options">
         <div class="container">
           <div class="options__content wrap">
-            <div class="caption caption--option">
-              <h2 class="title title--dark">Опции комфорта</h2>
-              <div class="subtitle">Чем наполнить свою жизнь — решать вам</div>
+            <div class="caption caption--option options__caption">
+              <h2 class="title title--dark options__title">Опции комфорта</h2>
+              <div class="subtitle options__subtitle">
+                Чем наполнить свою жизнь — решать вам
+              </div>
             </div>
             <ul class="options-card-list list-reset flex">
               <li class="options-card-list__item">
@@ -276,7 +280,9 @@
         <div class="container">
           <div class="exclusive__content">
             <div class="caption exclusive__caption">
-              <h2 class="title title--dark">Эксклюзивные решения</h2>
+              <h2 class="title title--dark exclusive__title">
+                Эксклюзивные решения
+              </h2>
             </div>
 
             <ul class="exclusive-list list-reset flex">
@@ -290,7 +296,7 @@
               </li>
               <li class="exclusive-list__item">
                 <img src="img/exclusive-ico-03.deaf250f213b14a31533.svg" alt="" class="exclusive-list__ico" width="48" height="48">
-                <span class="exclusive-list__txt">Арт-лобби для резидентов</span>
+                <span class="exclusive-list__txt">Арт-лобби <br>для резидентов</span>
               </li>
               <li class="exclusive-list__item">
                 <img src="img/exclusive-ico-04.b79c0b4a12d0f44314a6.svg" alt="" class="exclusive-list__ico" width="48" height="48">
@@ -351,19 +357,42 @@
         <div class="container">
           <div class="sales__content wrap flex">
             <section class="sales-form-section">
-              <div class="caption">
+              <div class="caption sales__caption">
                 <h2 class="title title--dark title--sales">Офис продаж</h2>
               </div>
+              <ul class="address list-reset">
+                <li class="address__item">
+                  <div class="address__title">Главный офис</div>
+                  <div class="address__txt">
+                    г. Рязань, ул. Право-лыбедская, 27а
+                  </div>
+                </li>
+                <li class="address__item">
+                  <div class="address__title">Офис на объекте</div>
+                  <div class="address__txt">
+                    г. Рязань, ул. Право-лыбедская, 27а
+                  </div>
+                </li>
+                <li class="address__item">
+                  <div class="address__title">Главный офис</div>
+                  <div class="address__txt">
+                    г. Рязань, ул. Право-лыбедская, 27а
+                  </div>
+                </li>
+              </ul>
 
               <div class="form-wrap">
-                <p class="subtitle subtitle__form">Посетите наш офис продаж</p>
+                <p class="subtitle subtitle__form">
+                  Посетите наш<br>
+                  офис продаж
+                </p>
 
                 <form action="#" method="post" class="form sales-form sales-form--flex">
                   <input class="sales-form__input" type="text" placeholder="Ваше имя" required>
                   <input class="sales-form__input" type="tel" placeholder="Телефон" required>
                   <input class="sales-form__input" type="email" placeholder="Email">
                   <button type="submit" class="btn sales-form__btn">
-                    Отправить
+                    Узнать подробнее
                   </button>
                 </form>
               </div>
@@ -375,7 +404,36 @@
     </main>
 
     <footer class="footer">
-      <div class="container"></div>
+      <div class="container footer__container">
+        <div class="footer__wrap">
+          <div class="footer__list flex">
+            <div class="footer__item footer__info">
+              <a href="tel:+74912800005" class="footer__link footer__tel">500-005</a>
+              <a href="#" class="footer__link footer__docs">Проектная документация</a>
+              <a href="#" class="footer__link footer__docs">Политика конфиденциальности</a>
+            </div>
+            <div class="footer__item footer-logo">
+              <a href="/" class="footer-logo__link"><img src="img/logo-footer.bcea575a560d70184753.png" alt="Лого" class="footer-logo__img" width="154" height="106"></a>
+            </div>
+            <div class="footer__item">
+              <ul class="socials list-reset flex">
+                <li class="socials__item">
+                  <a href="https://telegram.org/" class="socials__link"><img src="img/telegram-ico.eee25227311f9ed7cd86.png" alt="Telegram" class="socials__ico" width="48" height="48"></a>
+                </li>
+                <li class="socials__item">
+                  <a href="https://youtube.com" class="socials__link"><img src="img/youtube-ico.faee72caf06b4edf6031.png" alt="Youtube" class="socials__ico" width="48" height="48"></a>
+                </li>
+                <li class="socials__item">
+                  <a href="https://vk.com" class="socials__link"><img src="img/vk-ico.430becc78dc11def1914.png" alt="VK" class="socials__ico" width="48" height="48"></a>
+                </li>
+                <li class="socials__item">
+                  <a href="https://dzen.ru" class="socials__link"><img src="img/dzen-ico.9202b753e36a1d6d72d2.png" alt="VK" class="socials__ico" width="48" height="48"></a>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
     </footer>
   </body>
 </html>
