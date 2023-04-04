@@ -8,11 +8,21 @@
 .card-item {
   position: relative;
   max-width: 340px;
+
+  &__link {
+    z-index: 50;
+  }
+
+  &__img {
+    z-index: 50;
+  }
+
   &__txt {
     position: absolute;
     bottom: 22px;
     left: 30px;
     margin: 0;
+    z-index: 50;
     padding-right: 30px;
 
     font-family: "Manrope";
@@ -23,5 +33,43 @@
     letter-spacing: 0.16em;
     text-transform: uppercase;
     color: $color-text-light;
+  }
+
+  &__clip--1 {
+    clip-path: polygon(18.82% 0, 100% 0, 100% 82%, 92% 100%, 0 100%, 0 40%);
+  }
+  &__clip--2 {
+    clip-path: polygon(10.5% 0, 100% 0, 100% 100%, 0 100%, 0 22.7%);
+  }
+  &__clip--3 {
+    clip-path: polygon(15.3% 0, 100% 0, 100% 100%, 0 100%, 0 32.7%);
+  }
+  &__clip--4 {
+    clip-path: polygon(11.76% 0, 100% 0, 100% 100%, 0 100%, 0 25.45%);
+  }
+  &__clip--5 {
+    clip-path: polygon(0% 0%, 100% 0, 100% 79.54%, 90.58% 100%, 0% 100%);
+  }
+  &__clip--6 {
+    clip-path: polygon(
+      12.35% 0,
+      100% 0,
+      100% 59.09%,
+      82% 100%,
+      0 100%,
+      0 26.36%
+    );
+  }
+}
+
+.overlay {
+  &::before {
+    content: "";
+    z-index: 10;
+    width: 100%;
+    height: 100%;
+    display: block;
+    position: absolute;
+    background: linear-gradient(360deg, #2c2c2c 0%, rgba(44, 44, 44, 0) 100%);
   }
 }

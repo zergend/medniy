@@ -38,8 +38,9 @@ html {
   box-sizing: inherit; }
 
 body {
+  margin: 0;
   scroll-behavior: smooth;
-  background-color: #e8e8e8;
+  background-color: #fff;
   color: #23272c;
   font-family: "Manrope";
   font-style: normal;
@@ -56,7 +57,8 @@ h6 {
   margin: 0; }
 
 img {
-  max-width: 100%; }
+  max-width: 100%;
+  max-height: 100%; }
 
 a {
   text-decoration: none;
@@ -107,6 +109,7 @@ a {
     text-transform: uppercase;
     color: rgba(255, 255, 255, 0.7); }
   .title--extra {
+    margin-bottom: 49px;
     font-family: "Manrope";
     font-style: normal;
     font-weight: 400;
@@ -114,6 +117,7 @@ a {
     line-height: 25px;
     letter-spacing: 0.16em;
     text-transform: uppercase;
+    text-align: center;
     color: #c3c4c6; }
 
 .subtitle {
@@ -176,11 +180,16 @@ a {
 .card-item {
   position: relative;
   max-width: 340px; }
+  .card-item__link {
+    z-index: 50; }
+  .card-item__img {
+    z-index: 50; }
   .card-item__txt {
     position: absolute;
     bottom: 22px;
     left: 30px;
     margin: 0;
+    z-index: 50;
     padding-right: 30px;
     font-family: "Manrope";
     font-style: normal;
@@ -190,6 +199,132 @@ a {
     letter-spacing: 0.16em;
     text-transform: uppercase;
     color: #ffffff; }
+  .card-item__clip--1 {
+    clip-path: polygon(18.82% 0, 100% 0, 100% 82%, 92% 100%, 0 100%, 0 40%); }
+  .card-item__clip--2 {
+    clip-path: polygon(10.5% 0, 100% 0, 100% 100%, 0 100%, 0 22.7%); }
+  .card-item__clip--3 {
+    clip-path: polygon(15.3% 0, 100% 0, 100% 100%, 0 100%, 0 32.7%); }
+  .card-item__clip--4 {
+    clip-path: polygon(11.76% 0, 100% 0, 100% 100%, 0 100%, 0 25.45%); }
+  .card-item__clip--5 {
+    clip-path: polygon(0% 0%, 100% 0, 100% 79.54%, 90.58% 100%, 0% 100%); }
+  .card-item__clip--6 {
+    clip-path: polygon(12.35% 0, 100% 0, 100% 59.09%, 82% 100%, 0 100%, 0 26.36%); }
+
+.overlay::before {
+  content: "";
+  z-index: 10;
+  width: 100%;
+  height: 100%;
+  display: block;
+  position: absolute;
+  background: linear-gradient(360deg, #2c2c2c 0%, rgba(44, 44, 44, 0) 100%); }
+
+.extra__content {
+  padding-top: 33px;
+  background-color: #23272c; }
+
+.extra-list__txt {
+  font-family: "Manrope";
+  font-style: normal;
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 18px;
+  color: #ffffff; }
+
+.exclusive__content {
+  max-height: 650px;
+  padding-top: 55px;
+  padding-bottom: 300px;
+  background-image: url(../img/exclusive-bg.e713f188c1d9842f804e.png);
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover; }
+
+.exclusive__caption {
+  margin-bottom: 40px; }
+
+.exclusive-list {
+  margin: 0 180px;
+  flex-wrap: wrap;
+  row-gap: 30px; }
+  .exclusive-list__item {
+    flex: 1 1 calc((100% / 3)); }
+
+.gallery__content {
+  padding-top: 72px;
+  padding-bottom: 70px;
+  max-height: 640px;
+  background-color: #23272c; }
+
+.gallery__caption {
+  margin-left: 180px;
+  margin-bottom: 29px; }
+
+.gallery__link {
+  margin: auto;
+  z-index: 555;
+  font-family: "Manrope";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 25px;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: #dc9877; }
+
+.masonry {
+  margin: 0 180px;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-template-rows: repeat(4, 1fr);
+  gap: 20px; }
+  .masonry__img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover; }
+  .masonry__cell {
+    position: relative;
+    margin-inline: 0;
+    margin-block: 0;
+    margin: 0; }
+    .masonry__cell--1 {
+      grid-column: 1 / 3;
+      grid-row: 1 / -1; }
+    .masonry__cell--2 {
+      grid-column: 3 / 4;
+      grid-row: 1 / 3; }
+    .masonry__cell--3 {
+      grid-column: 4 / -1;
+      grid-row: 1 / 3; }
+    .masonry__cell--4 {
+      display: flex;
+      grid-column: 3 / -1;
+      grid-row: 3 / -1; }
+
+.sell-mask {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background-color: #23272c;
+  opacity: 0.7; }
+
+.sales-form {
+  max-width: 640px;
+  background-color: #f6f6f6;
+  padding-top: 60px;
+  padding-left: 100px;
+  padding-right: 80px; }
+
+.sales-map {
+  background-image: url(../img/office-map.7c39ac7da31ca45af99f.png);
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  width: 800px;
+  height: 800px; }
 
 
 /*# sourceMappingURL=main.css.map*/

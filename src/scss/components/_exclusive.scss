@@ -1,0 +1,25 @@
+.exclusive {
+  &__content {
+    max-height: 650px;
+    padding-top: 55px;
+    padding-bottom: 300px;
+    background-image: url(".././img/exclusive-bg.png");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+  }
+
+  &__caption {
+    margin-bottom: 40px;
+  }
+
+  &-list {
+    margin: 0 180px;
+    flex-wrap: wrap;
+    row-gap: 30px;
+
+    &__item {
+      flex: 1 1 calc((100% / 3));
+    }
+  }
+}

@@ -1,0 +1,17 @@
+.sales-form {
+  max-width: 640px;
+  background-color: $color-grey;
+  padding-top: 60px;
+  padding-left: 100px;
+  padding-right: 80px;
+}
+
+.sales-map {
+  background-image: url(".././img/office-map.png");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+
+  width: 800px;
+  height: 800px;
+}
