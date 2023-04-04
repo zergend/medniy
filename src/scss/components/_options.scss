@@ -1,0 +1,27 @@
+.options-card-list {
+  margin: 0 180px;
+  margin-bottom: 40px;
+  flex-wrap: wrap;
+  gap: 30px;
+}
+
+.card-item {
+  position: relative;
+  max-width: 340px;
+  &__txt {
+    position: absolute;
+    bottom: 22px;
+    left: 30px;
+    margin: 0;
+    padding-right: 30px;
+
+    font-family: "Manrope";
+    font-style: normal;
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 25px;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: $color-text-light;
+  }
+}

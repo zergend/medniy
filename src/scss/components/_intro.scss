@@ -2,5 +2,8 @@
   &__content {
     max-height: 680px;
     background-image: url(".././img/intro-bg.png");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
   }
 }

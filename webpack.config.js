@@ -123,7 +123,8 @@ module.exports = {
         test: /\.(jpe?g|png|gif|svg)$/i,
         type: "asset/resource",
         generator: {
-          filename: path.join("img", "[name].[contenthash][ext]"),
+          // filename: path.join("img", "[name].[contenthash][ext]"),
+          filename: "img/[name].[contenthash][ext]",
         },
       },
       {

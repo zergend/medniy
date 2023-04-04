@@ -17,6 +17,16 @@ body {
   font-weight: 500;
   font-size: 14px;
   line-height: 24px;
+  //max-width: 1440px;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  margin: 0;
 }
 
 img {
@@ -32,6 +42,10 @@ a {
   @include visually-hidden;
 }
 
+.flex {
+  display: flex;
+}
+
 .list-reset {
   list-style-type: none;
   margin: 0;
@@ -40,7 +54,7 @@ a {
 
 .container {
   margin: 0 auto;
-  padding: 0 180px;
+  padding: 0 0;
   max-width: 1440px;
 }
 
@@ -86,4 +100,16 @@ a {
 
     color: #c3c4c6;
   }
+}
+
+.subtitle {
+  font-family: "Manrope";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 25px;
+
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: $color-text-cuprum;
 }
