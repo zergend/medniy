@@ -1,7 +1,74 @@
 .main-nav {
+  position: relative;
   margin-left: 42px;
   margin-top: 29px;
+  padding-bottom: 20px;
   display: flex;
   align-items: flex-end;
-  justify-content: space-between;
+  gap: 127px;
+}
+
+.site-navigation {
+  &__list {
+    display: flex;
+    gap: 18px;
+  }
+
+  &__item {
+    padding: 5px 0;
+  }
+
+  &__link {
+    //padding: 5px 0;
+
+    font-family: "Manrope";
+    font-style: normal;
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 19px;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+
+    color: $color-text-cuprum;
+
+    &:visited {
+      color: $color-text-cuprum;
+    }
+    &:hover {
+      color: $color-text-dark;
+    }
+    &:active {
+      color: $color-text-dark;
+    }
+  }
+}
+
+.callback {
+  position: absolute;
+  right: 0;
+  bottom: 20px;
+
+  &__link {
+    font-family: "Manrope";
+    font-style: normal;
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 19px;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+
+    color: #ffffff;
+  }
+
+  &__btn {
+    display: inline-block;
+    width: 124px;
+    height: 48px;
+    padding: 5px 25px;
+    border: none;
+    background-image: url(".././img/callback-btn-bg.png");
+    background-repeat: no-repeat;
+    background-position: top left;
+    background-size: auto;
+  }
 }

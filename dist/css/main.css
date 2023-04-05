@@ -141,11 +141,60 @@ a {
     color: #ffffff; }
 
 .main-nav {
+  position: relative;
   margin-left: 42px;
   margin-top: 29px;
+  padding-bottom: 20px;
   display: flex;
   align-items: flex-end;
-  justify-content: space-between; }
+  gap: 127px; }
+
+.site-navigation__list {
+  display: flex;
+  gap: 18px; }
+
+.site-navigation__item {
+  padding: 5px 0; }
+
+.site-navigation__link {
+  font-family: "Manrope";
+  font-style: normal;
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 19px;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: #dc9877; }
+  .site-navigation__link:visited {
+    color: #dc9877; }
+  .site-navigation__link:hover {
+    color: #23272c; }
+  .site-navigation__link:active {
+    color: #23272c; }
+
+.callback {
+  position: absolute;
+  right: 0;
+  bottom: 20px; }
+  .callback__link {
+    font-family: "Manrope";
+    font-style: normal;
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 19px;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: #ffffff; }
+  .callback__btn {
+    display: inline-block;
+    width: 124px;
+    height: 48px;
+    padding: 5px 25px;
+    border: none;
+    background-image: url(../img/callback-btn-bg.86bada861695abab10e8.png);
+    background-repeat: no-repeat;
+    background-position: top left;
+    background-size: auto; }
 
 .intro__content {
   max-height: 680px;
