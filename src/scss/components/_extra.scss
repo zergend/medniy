@@ -1,7 +1,27 @@
 .extra {
   &__content {
     padding-top: 33px;
+    padding-bottom: 100px;
+    max-height: 292px;
     background-color: $color-bg-dark;
+    clip-path: polygon(6.44% 0%, 100% 0%, 100% 100%, 0 100%, 0 47.95%);
+  }
+
+  &-list {
+    display: flex;
+    margin-left: 225px;
+    gap: 40px;
+
+    &__item {
+      display: flex;
+      max-width: 325px;
+      gap: 30px;
+    }
+
+    &__info {
+      display: flex;
+      flex-direction: column;
+    }
   }
 
   &-list__txt {

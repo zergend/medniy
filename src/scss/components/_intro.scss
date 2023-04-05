@@ -1,8 +1,32 @@
 .intro {
-  &__caption {
+  position: relative;
+  z-index: 50;
+  &__content {
     display: flex;
+    justify-content: flex-end;
+    max-height: 680px;
+    //background-color: #fff;
+    background-image: url(".././img/intro-bg-cut.png");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+
+    //clip-path: polygon(12.5% 0%, 100% 0%, 100% 79.41%, 93.055 100%, 0 37.647%);
+  }
+
+  &__caption {
     margin-top: 95px;
-    max-width: 585px;
+    margin-bottom: 500px;
+    margin-right: 170px;
+    max-width: 600px;
+    position: relative;
+    &::after {
+      content: url(".././img/intro-slash.svg");
+      display: block;
+      position: absolute;
+      right: -74px;
+      top: -20px;
+    }
   }
 
   &__title {
@@ -17,13 +41,5 @@
     text-transform: uppercase;
 
     color: rgba(255, 255, 255, 0.7);
-  }
-
-  &__content {
-    max-height: 680px;
-    background-image: url(".././img/intro-bg.png");
-    background-repeat: no-repeat;
-    background-position: center;
-    background-size: cover;
   }
 }

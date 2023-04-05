@@ -6,13 +6,6 @@
 
   &__caption {
     position: relative;
-    /* 
-    background-image: url(".././img/about-slash.svg");
-    background-repeat: no-repeat;
-    background-position: top left;
-    background-size: auto;
-    */
-
     &::before {
       content: url(".././img/about-slash.svg");
       display: block;
