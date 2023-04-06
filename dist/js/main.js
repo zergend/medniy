@@ -132,15 +132,314 @@ module.exports = function (url, options) {
 
 /***/ }),
 
+/***/ "../node_modules/mini-css-extract-plugin/dist/hmr/hotModuleReplacement.js":
+/*!********************************************************************************!*\
+  !*** ../node_modules/mini-css-extract-plugin/dist/hmr/hotModuleReplacement.js ***!
+  \********************************************************************************/
+/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+
+
+
+/* eslint-env browser */
+/*
+  eslint-disable
+  no-console,
+  func-names
+*/
+
+/** @typedef {any} TODO */
+
+var normalizeUrl = __webpack_require__(/*! ./normalize-url */ "../node_modules/mini-css-extract-plugin/dist/hmr/normalize-url.js");
+var srcByModuleId = Object.create(null);
+var noDocument = typeof document === "undefined";
+var forEach = Array.prototype.forEach;
+
+/**
+ * @param {function} fn
+ * @param {number} time
+ * @returns {(function(): void)|*}
+ */
+function debounce(fn, time) {
+  var timeout = 0;
+  return function () {
+    // @ts-ignore
+    var self = this;
+    // eslint-disable-next-line prefer-rest-params
+    var args = arguments;
+    var functionCall = function functionCall() {
+      return fn.apply(self, args);
+    };
+    clearTimeout(timeout);
+
+    // @ts-ignore
+    timeout = setTimeout(functionCall, time);
+  };
+}
+function noop() {}
+
+/**
+ * @param {TODO} moduleId
+ * @returns {TODO}
+ */
+function getCurrentScriptUrl(moduleId) {
+  var src = srcByModuleId[moduleId];
+  if (!src) {
+    if (document.currentScript) {
+      src = /** @type {HTMLScriptElement} */document.currentScript.src;
+    } else {
+      var scripts = document.getElementsByTagName("script");
+      var lastScriptTag = scripts[scripts.length - 1];
+      if (lastScriptTag) {
+        src = lastScriptTag.src;
+      }
+    }
+    srcByModuleId[moduleId] = src;
+  }
+
+  /**
+   * @param {string} fileMap
+   * @returns {null | string[]}
+   */
+  return function (fileMap) {
+    if (!src) {
+      return null;
+    }
+    var splitResult = src.split(/([^\\/]+)\.js$/);
+    var filename = splitResult && splitResult[1];
+    if (!filename) {
+      return [src.replace(".js", ".css")];
+    }
+    if (!fileMap) {
+      return [src.replace(".js", ".css")];
+    }
+    return fileMap.split(",").map(function (mapRule) {
+      var reg = new RegExp("".concat(filename, "\\.js$"), "g");
+      return normalizeUrl(src.replace(reg, "".concat(mapRule.replace(/{fileName}/g, filename), ".css")));
+    });
+  };
+}
+
+/**
+ * @param {TODO} el
+ * @param {string} [url]
+ */
+function updateCss(el, url) {
+  if (!url) {
+    if (!el.href) {
+      return;
+    }
+
+    // eslint-disable-next-line
+    url = el.href.split("?")[0];
+  }
+  if (!isUrlRequest( /** @type {string} */url)) {
+    return;
+  }
+  if (el.isLoaded === false) {
+    // We seem to be about to replace a css link that hasn't loaded yet.
+    // We're probably changing the same file more than once.
+    return;
+  }
+  if (!url || !(url.indexOf(".css") > -1)) {
+    return;
+  }
+
+  // eslint-disable-next-line no-param-reassign
+  el.visited = true;
+  var newEl = el.cloneNode();
+  newEl.isLoaded = false;
+  newEl.addEventListener("load", function () {
+    if (newEl.isLoaded) {
+      return;
+    }
+    newEl.isLoaded = true;
+    el.parentNode.removeChild(el);
+  });
+  newEl.addEventListener("error", function () {
+    if (newEl.isLoaded) {
+      return;
+    }
+    newEl.isLoaded = true;
+    el.parentNode.removeChild(el);
+  });
+  newEl.href = "".concat(url, "?").concat(Date.now());
+  if (el.nextSibling) {
+    el.parentNode.insertBefore(newEl, el.nextSibling);
+  } else {
+    el.parentNode.appendChild(newEl);
+  }
+}
+
+/**
+ * @param {string} href
+ * @param {TODO} src
+ * @returns {TODO}
+ */
+function getReloadUrl(href, src) {
+  var ret;
+
+  // eslint-disable-next-line no-param-reassign
+  href = normalizeUrl(href);
+  src.some(
+  /**
+   * @param {string} url
+   */
+  // eslint-disable-next-line array-callback-return
+  function (url) {
+    if (href.indexOf(src) > -1) {
+      ret = url;
+    }
+  });
+  return ret;
+}
+
+/**
+ * @param {string} [src]
+ * @returns {boolean}
+ */
+function reloadStyle(src) {
+  if (!src) {
+    return false;
+  }
+  var elements = document.querySelectorAll("link");
+  var loaded = false;
+  forEach.call(elements, function (el) {
+    if (!el.href) {
+      return;
+    }
+    var url = getReloadUrl(el.href, src);
+    if (!isUrlRequest(url)) {
+      return;
+    }
+    if (el.visited === true) {
+      return;
+    }
+    if (url) {
+      updateCss(el, url);
+      loaded = true;
+    }
+  });
+  return loaded;
+}
+function reloadAll() {
+  var elements = document.querySelectorAll("link");
+  forEach.call(elements, function (el) {
+    if (el.visited === true) {
+      return;
+    }
+    updateCss(el);
+  });
+}
+
+/**
+ * @param {string} url
+ * @returns {boolean}
+ */
+function isUrlRequest(url) {
+  // An URL is not an request if
+
+  // It is not http or https
+  if (!/^[a-zA-Z][a-zA-Z\d+\-.]*:/.test(url)) {
+    return false;
+  }
+  return true;
+}
+
+/**
+ * @param {TODO} moduleId
+ * @param {TODO} options
+ * @returns {TODO}
+ */
+module.exports = function (moduleId, options) {
+  if (noDocument) {
+    console.log("no window.document found, will not HMR CSS");
+    return noop;
+  }
+  var getScriptSrc = getCurrentScriptUrl(moduleId);
+  function update() {
+    var src = getScriptSrc(options.filename);
+    var reloaded = reloadStyle(src);
+    if (options.locals) {
+      console.log("[HMR] Detected local css modules. Reload all css");
+      reloadAll();
+      return;
+    }
+    if (reloaded) {
+      console.log("[HMR] css reload %s", src.join(" "));
+    } else {
+      console.log("[HMR] Reload all css");
+      reloadAll();
+    }
+  }
+  return debounce(update, 50);
+};
+
+/***/ }),
+
+/***/ "../node_modules/mini-css-extract-plugin/dist/hmr/normalize-url.js":
+/*!*************************************************************************!*\
+  !*** ../node_modules/mini-css-extract-plugin/dist/hmr/normalize-url.js ***!
+  \*************************************************************************/
+/***/ ((module) => {
+
+
+
+/* eslint-disable */
+
+/**
+ * @param {string[]} pathComponents
+ * @returns {string}
+ */
+function normalizeUrl(pathComponents) {
+  return pathComponents.reduce(function (accumulator, item) {
+    switch (item) {
+      case "..":
+        accumulator.pop();
+        break;
+      case ".":
+        break;
+      default:
+        accumulator.push(item);
+    }
+    return accumulator;
+  }, /** @type {string[]} */[]).join("/");
+}
+
+/**
+ * @param {string} urlString
+ * @returns {string}
+ */
+module.exports = function (urlString) {
+  urlString = urlString.trim();
+  if (/^data:/i.test(urlString)) {
+    return urlString;
+  }
+  var protocol = urlString.indexOf("//") !== -1 ? urlString.split("//")[0] + "//" : "";
+  var components = urlString.replace(new RegExp(protocol, "i"), "").split("/");
+  var host = components[0].toLowerCase().replace(/\.$/, "");
+  components[0] = "";
+  var path = normalizeUrl(components);
+  return protocol + host + path;
+};
+
+/***/ }),
+
 /***/ "./scss/main.scss":
 /*!************************!*\
   !*** ./scss/main.scss ***!
   \************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+/***/ ((module, __webpack_exports__, __webpack_require__) => {
 
 __webpack_require__.r(__webpack_exports__);
 // extracted by mini-css-extract-plugin
 
+    if(true) {
+      // 1680760453815
+      var cssReload = __webpack_require__(/*! ../../node_modules/mini-css-extract-plugin/dist/hmr/hotModuleReplacement.js */ "../node_modules/mini-css-extract-plugin/dist/hmr/hotModuleReplacement.js")(module.id, {"locals":false});
+      module.hot.dispose(cssReload);
+      module.hot.accept(undefined, cssReload);
+    }
+  
 
 /***/ }),
 
@@ -150,7 +449,7 @@ __webpack_require__.r(__webpack_exports__);
   \**************************************/
 /***/ ((module, __unused_webpack_exports, __webpack_require__) => {
 
-module.exports = __webpack_require__.p + "img/about-comfort-ico-01.16512d1067a3389a7b52.svg";
+module.exports = __webpack_require__.p + "img/about-comfort-ico-01.f85c4f97fd135c4f2eb4.svg";
 
 /***/ }),
 
@@ -160,7 +459,7 @@ module.exports = __webpack_require__.p + "img/about-comfort-ico-01.16512d1067a33
   \**************************************/
 /***/ ((module, __unused_webpack_exports, __webpack_require__) => {
 
-module.exports = __webpack_require__.p + "img/about-comfort-ico-02.c653888eccfa7c2d9b50.svg";
+module.exports = __webpack_require__.p + "img/about-comfort-ico-02.495ac89202ed086e7423.svg";
 
 /***/ }),
 
@@ -170,7 +469,7 @@ module.exports = __webpack_require__.p + "img/about-comfort-ico-02.c653888eccfa7
   \**************************************/
 /***/ ((module, __unused_webpack_exports, __webpack_require__) => {
 
-module.exports = __webpack_require__.p + "img/about-comfort-ico-03.590bf4a89df2789fc1c1.svg";
+module.exports = __webpack_require__.p + "img/about-comfort-ico-03.c91b9963a14fd73383a6.svg";
 
 /***/ }),
 
@@ -180,7 +479,7 @@ module.exports = __webpack_require__.p + "img/about-comfort-ico-03.590bf4a89df27
   \**************************************/
 /***/ ((module, __unused_webpack_exports, __webpack_require__) => {
 
-module.exports = __webpack_require__.p + "img/about-comfort-ico-04.1ade21287ddcd10bd8ec.svg";
+module.exports = __webpack_require__.p + "img/about-comfort-ico-04.47da4a6ecba9861390d9.svg";
 
 /***/ }),
 
@@ -190,7 +489,7 @@ module.exports = __webpack_require__.p + "img/about-comfort-ico-04.1ade21287ddcd
   \******************************/
 /***/ ((module, __unused_webpack_exports, __webpack_require__) => {
 
-module.exports = __webpack_require__.p + "img/about-ico-01.243ae1d803239df97539.svg";
+module.exports = __webpack_require__.p + "img/about-ico-01.a8ed8dab988810d1079c.svg";
 
 /***/ }),
 
@@ -200,7 +499,7 @@ module.exports = __webpack_require__.p + "img/about-ico-01.243ae1d803239df97539.
   \******************************/
 /***/ ((module, __unused_webpack_exports, __webpack_require__) => {
 
-module.exports = __webpack_require__.p + "img/about-ico-02.0bd1cf29786f8275d39e.svg";
+module.exports = __webpack_require__.p + "img/about-ico-02.28c9420aae62630880b9.svg";
 
 /***/ }),
 
@@ -210,7 +509,7 @@ module.exports = __webpack_require__.p + "img/about-ico-02.0bd1cf29786f8275d39e.
   \******************************/
 /***/ ((module, __unused_webpack_exports, __webpack_require__) => {
 
-module.exports = __webpack_require__.p + "img/about-ico-03.22554bbe3906c777469a.svg";
+module.exports = __webpack_require__.p + "img/about-ico-03.c4daf235f01404784373.svg";
 
 /***/ }),
 
@@ -220,7 +519,7 @@ module.exports = __webpack_require__.p + "img/about-ico-03.22554bbe3906c777469a.
   \******************************/
 /***/ ((module, __unused_webpack_exports, __webpack_require__) => {
 
-module.exports = __webpack_require__.p + "img/about-ico-04.b943d11a1afaba8777b7.svg";
+module.exports = __webpack_require__.p + "img/about-ico-04.ca3e1fcae0cb367c8725.svg";
 
 /***/ }),
 
@@ -240,7 +539,7 @@ module.exports = __webpack_require__.p + "img/dzen-ico.9202b753e36a1d6d72d2.png"
   \**********************************/
 /***/ ((module, __unused_webpack_exports, __webpack_require__) => {
 
-module.exports = __webpack_require__.p + "img/exclusive-ico-01.21bff8813d1cb2c86cdb.svg";
+module.exports = __webpack_require__.p + "img/exclusive-ico-01.e6969c1c9462045dcb2b.svg";
 
 /***/ }),
 
@@ -250,7 +549,7 @@ module.exports = __webpack_require__.p + "img/exclusive-ico-01.21bff8813d1cb2c86
   \**********************************/
 /***/ ((module, __unused_webpack_exports, __webpack_require__) => {
 
-module.exports = __webpack_require__.p + "img/exclusive-ico-02.07d7f78e0c7f005a72c0.svg";
+module.exports = __webpack_require__.p + "img/exclusive-ico-02.db6b1cdb9a07b998ca21.svg";
 
 /***/ }),
 
@@ -260,7 +559,7 @@ module.exports = __webpack_require__.p + "img/exclusive-ico-02.07d7f78e0c7f005a7
   \**********************************/
 /***/ ((module, __unused_webpack_exports, __webpack_require__) => {
 
-module.exports = __webpack_require__.p + "img/exclusive-ico-03.deaf250f213b14a31533.svg";
+module.exports = __webpack_require__.p + "img/exclusive-ico-03.6fd8651ba488c0f76506.svg";
 
 /***/ }),
 
@@ -270,7 +569,7 @@ module.exports = __webpack_require__.p + "img/exclusive-ico-03.deaf250f213b14a31
   \**********************************/
 /***/ ((module, __unused_webpack_exports, __webpack_require__) => {
 
-module.exports = __webpack_require__.p + "img/exclusive-ico-04.b79c0b4a12d0f44314a6.svg";
+module.exports = __webpack_require__.p + "img/exclusive-ico-04.2c1e290d0679caa214b7.svg";
 
 /***/ }),
 
@@ -280,7 +579,7 @@ module.exports = __webpack_require__.p + "img/exclusive-ico-04.b79c0b4a12d0f4431
   \**********************************/
 /***/ ((module, __unused_webpack_exports, __webpack_require__) => {
 
-module.exports = __webpack_require__.p + "img/exclusive-ico-05.89ddfafa7dcadef29782.svg";
+module.exports = __webpack_require__.p + "img/exclusive-ico-05.fad0b2cdaf1c0eaa1aa7.svg";
 
 /***/ }),
 
@@ -290,7 +589,7 @@ module.exports = __webpack_require__.p + "img/exclusive-ico-05.89ddfafa7dcadef29
   \**********************************/
 /***/ ((module, __unused_webpack_exports, __webpack_require__) => {
 
-module.exports = __webpack_require__.p + "img/exclusive-ico-06.4af7482e45458c64db29.svg";
+module.exports = __webpack_require__.p + "img/exclusive-ico-06.bfa9736034828effa17a.svg";
 
 /***/ }),
 
@@ -300,7 +599,7 @@ module.exports = __webpack_require__.p + "img/exclusive-ico-06.4af7482e45458c64d
   \**********************************/
 /***/ ((module, __unused_webpack_exports, __webpack_require__) => {
 
-module.exports = __webpack_require__.p + "img/exclusive-ico-07.97cd5f18d97e791e53cb.svg";
+module.exports = __webpack_require__.p + "img/exclusive-ico-07.0d1b203b05714b16a404.svg";
 
 /***/ }),
 
@@ -310,7 +609,7 @@ module.exports = __webpack_require__.p + "img/exclusive-ico-07.97cd5f18d97e791e5
   \**********************************/
 /***/ ((module, __unused_webpack_exports, __webpack_require__) => {
 
-module.exports = __webpack_require__.p + "img/exclusive-ico-08.306de17868d336572234.svg";
+module.exports = __webpack_require__.p + "img/exclusive-ico-08.8cbd6c46ff337b254886.svg";
 
 /***/ }),
 
@@ -320,7 +619,7 @@ module.exports = __webpack_require__.p + "img/exclusive-ico-08.306de17868d336572
   \**********************************/
 /***/ ((module, __unused_webpack_exports, __webpack_require__) => {
 
-module.exports = __webpack_require__.p + "img/exclusive-ico-09.cc683d64a88f2220b41d.svg";
+module.exports = __webpack_require__.p + "img/exclusive-ico-09.dbb04ba8cf8285f7b74a.svg";
 
 /***/ }),
 
@@ -528,7 +827,7 @@ module.exports = __webpack_require__.p + "img/youtube-ico.faee72caf06b4edf6031.p
 /******/ 		}
 /******/ 		// Create a new module (and put it into the cache)
 /******/ 		var module = __webpack_module_cache__[moduleId] = {
-/******/ 			// no module.id needed
+/******/ 			id: moduleId,
 /******/ 			// no module.loaded needed
 /******/ 			exports: {}
 /******/ 		};
